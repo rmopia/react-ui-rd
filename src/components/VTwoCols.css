@@ -1,0 +1,40 @@
+.line-hr {
+  border: 3px solid black;
+  border-radius: 32px;
+  width: 50vh;
+}
+
+.c-input {
+  width: 8vh !important;
+  text-align: center;
+  font-size: larger !important;
+  box-shadow: none !important;
+  font-weight: bold !important;
+}
+
+.indicator1 {
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.yellowgreen1 {
+  background-color: yellowgreen;
+}
+
+.hint-btn1 {
+  position: relative;
+  border-radius: 50% !important;
+  left: -100px !important;
+}
+
+.ini-row {
+  border-radius: 32px;
+  padding-top: 10px;
+  margin-left: -80px !important;
+  padding-bottom: 10px;
+  padding-right: 10px;
+}

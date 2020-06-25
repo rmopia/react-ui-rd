@@ -1,0 +1,21 @@
+.init-input {
+  text-align: right;
+  font-size: larger !important;
+  box-shadow: none !important;
+  border: none !important;
+  font-weight: bold !important;
+}
+
+.hr-l {
+  border: 3px solid black;
+  border-radius: 32px;
+  width: 24%;
+}
+
+.h-math {
+  margin-right: -200px;
+}
+
+.res {
+  margin-right: -200px;
+}
