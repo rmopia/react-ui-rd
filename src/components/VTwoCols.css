@@ -7,7 +7,7 @@
 .c-input {
   width: 8vh !important;
   text-align: center;
-  font-size: larger !important;
+  font-size: 150% !important;
   box-shadow: none !important;
   font-weight: bold !important;
 }

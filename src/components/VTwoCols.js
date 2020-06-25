@@ -6,6 +6,7 @@ class VTwoCols extends Component {
   constructor(props) {
     super(props);
     this.handleFocus = this.handleFocus.bind(this);
+    this.boolCheck = this.boolCheck.bind(this);
     this.state = {
       error: null,
       isLoaded: false,
@@ -13,7 +14,7 @@ class VTwoCols extends Component {
       name: null,
       rowList: [],
       VisibleDotList: [],
-      VisibleHintList: [],
+      rowID: 0,
       nextRowBool: true, // only used by initial row
     };
   }
@@ -80,7 +81,12 @@ class VTwoCols extends Component {
               autoComplete="off"
               autoFocus={true}
               onFocus={this.handleFocus}
-              id={i}
+              tabIndex={i}
+              onKeyDown={(event) => {
+                if (event.key === "ArrowLeft") {
+                  console.log("testttttt!");
+                }
+              }}
             />
           </div>
         );
@@ -96,7 +102,7 @@ class VTwoCols extends Component {
                 }
               }}
               onFocus={this.handleFocus}
-              id={i}
+              tabIndex={i}
             />
           </div>
         );
@@ -107,13 +113,19 @@ class VTwoCols extends Component {
               autoComplete="off"
               className="form-control c-input"
               onFocus={this.handleFocus}
-              id={i}
+              tabIndex={i}
             />
           </div>
         );
       }
     }
     return child;
+  }
+
+  boolCheck(e) {
+    let b = Number(e.currentTarget.id) === Number(this.state.rowID - 1);
+    console.log(b);
+    return b;
   }
 
   // Dynamic column creation based on colFreq
@@ -124,6 +136,7 @@ class VTwoCols extends Component {
     this.setState({
       rowList: this.state.rowList.map((obj) => (obj.enterKeyBool = false)),
     });
+    const row_id = this.state.rowID;
     let freq = this.colFreq();
     let obj = {
       child: [],
@@ -133,8 +146,10 @@ class VTwoCols extends Component {
     obj.child.push(
       <button
         className="btn btn-info hint-btn1"
+        id={row_id}
+        onClick={this.boolCheck}
         style={{
-          visibility: obj.enterKeyBool ? "visible" : "hidden",
+          visibility: this.boolCheck ? "visible" : "hidden",
         }}
       >
         <span>&#128546;</span>
@@ -147,10 +162,11 @@ class VTwoCols extends Component {
           <div className="col d-col">
             <input
               className="form-control c-input"
+              id={row_id}
               autoFocus={true}
               autoComplete="off"
               onFocus={this.handleFocus}
-              id={i}
+              tabIndex={i}
             />
           </div>
         );
@@ -159,6 +175,7 @@ class VTwoCols extends Component {
           <div className="col d-col">
             <input
               className="form-control c-input"
+              id={row_id}
               autoComplete="off"
               onKeyPress={(event) => {
                 if (event.key === "Enter" && obj.enterKeyBool === true) {
@@ -166,7 +183,7 @@ class VTwoCols extends Component {
                 }
               }}
               onFocus={this.handleFocus}
-              id={i}
+              tabIndex={i}
             />
           </div>
         );
@@ -175,15 +192,17 @@ class VTwoCols extends Component {
           <div className="col d-col">
             <input
               className="form-control c-input"
+              id={row_id}
               autoComplete="off"
               onFocus={this.handleFocus}
-              id={i}
+              tabIndex={i}
             />
           </div>
         );
       }
       this.setState({
         rowList: [...this.state.rowList, obj],
+        rowID: this.state.rowID + 1,
       });
     }
   }
@@ -193,7 +212,7 @@ class VTwoCols extends Component {
     let totalCols = this.colFreq();
     let VisibleDotList = [...this.state.VisibleDotList];
     for (let i = 0; i < totalCols; i++) {
-      if (i.toString() === e.target.id) {
+      if (i === e.target.tabIndex) {
         VisibleDotList[i] = true;
       } else {
         VisibleDotList[i] = false;
@@ -243,11 +262,11 @@ class VTwoCols extends Component {
           </div>
           <div className="row">
             <div className="mx-auto">
-              <h3>
+              <h2>
                 <MathpixLoader>
                   <MathpixMarkdown text={"$" + name + "$"} />
                 </MathpixLoader>
-              </h3>
+              </h2>
             </div>
           </div>
           <form
@@ -257,13 +276,7 @@ class VTwoCols extends Component {
           >
             <div className="row">
               <div className="mx-auto">
-                <div
-                  className="row ini-row"
-                  id={0}
-                  onFocus={(e) => console.log(e.currentTarget.id)}
-                >
-                  {this.initialRowCreation()}
-                </div>
+                <div className="row ini-row">{this.initialRowCreation()}</div>
               </div>
             </div>
             {this.state.rowList.map((obj) => (
@@ -276,7 +289,10 @@ class VTwoCols extends Component {
                 </div>
                 <div className="row">
                   <div className="mx-auto">
-                    <div className="row ini-row">
+                    <div
+                      className="row ini-row"
+                      onFocus={(e) => console.log(e.target.id)}
+                    >
                       {obj.child.map((thing) => thing)}
                     </div>
                   </div>
