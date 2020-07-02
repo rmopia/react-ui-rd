@@ -1,9 +1,12 @@
+.main-col {
+}
+
 .init-input {
   text-align: right;
   font-size: larger !important;
   box-shadow: none !important;
-  border: none !important;
   font-weight: bold !important;
+  border: none !important;
 }
 
 .hr-l {
@@ -12,10 +15,12 @@
   width: 24%;
 }
 
-.h-math {
-  margin-right: -200px;
+.svg-math {
+  text-align: center;
+  margin-right: -180px;
 }
 
 .res {
+  text-align: center;
   margin-right: -200px;
 }

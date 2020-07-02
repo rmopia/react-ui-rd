@@ -1,0 +1,16 @@
+.v3div {
+  overflow-x: hidden;
+}
+
+.first-spacer {
+  margin: 50px !important;
+}
+
+.simp-line {
+  margin-left: 260px;
+}
+
+.simp {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}

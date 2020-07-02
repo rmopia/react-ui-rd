@@ -1,0 +1,32 @@
+.input-span {
+  background-color: ghostwhite;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  border-radius: 32px;
+  width: 100vh;
+}
+
+.leftside {
+  font-weight: bolder !important;
+  color: black !important;
+  padding-top: 7px;
+  padding-left: 10px;
+}
+
+.input-init {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: black !important;
+  font-size: 1.25em !important;
+  font-weight: bolder !important;
+  background-color: ghostwhite !important;
+  border: none !important;
+  width: 40vh !important;
+  margin-left: 90px;
+}
+
+.hint-b {
+  position: relative;
+  border-radius: 50% !important;
+  width: 7vh !important;
+  left: -10px !important;
+}

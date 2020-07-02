@@ -7,6 +7,7 @@ import AddMath from "./pages/AddMath";
 import Demo from "./pages/Demo";
 import VersionOne from "./pages/VersionOne";
 import VersionTwo from "./pages/VersionTwo";
+import VersionThree from "./pages/VersionThree";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/Demo" component={Demo} />
         <Route path="/v1" component={VersionOne} />
         <Route path="/v2" component={VersionTwo} />
+        <Route path="/v3" component={VersionThree} />
       </BrowserRouter>
     </div>
   );

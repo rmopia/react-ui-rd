@@ -103,16 +103,13 @@ class VOneCols extends Component {
       return <div>Loading...</div>;
     } else {
       return (
-        <div>
-          <div className="row">
-            <div className="mx-auto">
-              <h5 className="h-math">
-                <MathpixLoader>
-                  <MathpixMarkdown text={"$" + name + "$"} />
-                </MathpixLoader>
-              </h5>
-            </div>
-          </div>
+        <div className="main-col">
+          <h5 className="svg-math">
+            <MathpixLoader>
+              <MathpixMarkdown text={"$" + name + "$"} />
+            </MathpixLoader>
+          </h5>
+
           <form
             onSubmit={(e) => {
               e.preventDefault();
@@ -149,11 +146,9 @@ class VOneCols extends Component {
             {this.state.rowList.map((obj) => (
               <div>
                 <hr className="hr-l" />
-                <div className="row">
-                  <div className="mx-auto">
-                    <h5 className="res">RESULT</h5>
-                  </div>
-                </div>
+
+                <h5 className="res">RESULT</h5>
+
                 <div className="row">
                   <div className="mx-auto">{obj.child}</div>
                 </div>
