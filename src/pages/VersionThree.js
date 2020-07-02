@@ -12,7 +12,7 @@ class VersionThree extends Component {
           <div className="mx-auto">
             <div className="row">
               <div className="simp-line">
-                <h5 className="simp">Simplify: 2( 2x + 18 ) - 2</h5>
+                <h5 className="simp">Simplify: 3x - 9 (x + 1) - (-5)</h5>
               </div>
             </div>
             <InputBar />
