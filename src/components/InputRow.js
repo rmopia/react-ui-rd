@@ -15,14 +15,10 @@ class InputRow extends Component {
     this.setState({ inputVal: e.target.value });
   }
 
-  handleClick() {
-    console.log("egg foo young");
-  }
-
   render() {
     const { nextRowBool, inputVal } = this.state;
     return (
-      <div className="row">
+      <div className="row row-init">
         <button
           className="btn btn-info hint-b"
           formNoValidate
@@ -34,6 +30,9 @@ class InputRow extends Component {
           className="input-span"
           style={{
             backgroundColor: nextRowBool ? "ghostwhite" : "white",
+            boxShadow: nextRowBool
+              ? "1px 3px 1px #9E9E9E"
+              : "1px 3px 1px white",
           }}
         >
           <div className="row">
